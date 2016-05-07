@@ -204,6 +204,13 @@ struct
       $ aux
     end
 
+  fun manyTill p q =
+    let
+      fun aux _ = (q return []) <|> p && $ aux wth (fn (x, xs) => x::xs)
+    in
+      $ aux
+    end
+
   (* chaining of parsers *)
   fun chainr1 p opp   =
     p -- (fn v => (opp && chainr1 p opp wth (fn (f, v') => f (v, v'))) <|> succeed v)
