@@ -1,4 +1,4 @@
-parcom -- a parser combinator library
+### parcom -- a parser combinator library
 
 This is a simple parser combinator library based on code by Chris
 Okasaki, Robert Harper, Frank Pfenning and Tom Murphy VII, with
