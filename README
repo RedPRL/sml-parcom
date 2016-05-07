@@ -21,5 +21,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see http://www.gnu.org/licenses/.
 
-At this point, the library is supported and developed by Filip
-Sieczkowski.
+At this point, the library is supported and developed by Jon Sterling and the
+RedPRL Group. This is a fork of [the library maintained by Filip
+Sieczkowski](https://github.com/standardml/parcom).
