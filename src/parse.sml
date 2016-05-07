@@ -102,7 +102,7 @@ struct
           | [x] => "Expected " ^ fmt x ^ ". "
           | x :: xs  => "Expected " ^ fmt x ^ exps xs
       fun msg msgs =
-        (String.concatWith ". " o List.map (fn Message m => m))
+        (String.concatWith ". " o List.map (fn Message m => m | _ => raise Match))
           (List.filter (fn Message _ => true | _ => false) msgs)
     in
       "Parse error at " ^ Pos.toString p ^ ": " ^ unex msgs ^ exp msgs ^ msg msgs ^ "\n"
@@ -141,12 +141,12 @@ struct
   fun p && q = p -- (fn x => q -- (fn y => succeed (x, y)))
   fun p || q = try p <|> q
 
-  fun p wth f      = p -- succeed o f
+  fun p wth f = p -- succeed o f
   fun p suchthat g =
     p -- (fn x => if g x then succeed x else fail "")
-  fun p when f     =
+  fun p when f =
     p -- (fn x => case f x of SOME r => succeed r | NONE => fail "")
-  fun p return x   = p -- (fn _ => succeed x)
+  fun p return x = p -- (fn _ => succeed x)
 
   fun seq ps = foldr (fn (ph, pt) => ph && pt wth op::) (succeed []) ps
   fun alt ps = foldr op|| (fail "") ps

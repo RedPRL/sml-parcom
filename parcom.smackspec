@@ -1,8 +1,0 @@
-provides: parcom 1.0.7
-requires: cmlib v1.1
-remote: git git://github.com/standardml/parcom.git
-description: A parser combinator library
-keywords: text, parsing
-bug-url: https://github.com/standardml/parcom/issues
-maintainer: Filip Sieczkowski <fisi@itu.dk>
-license: LGPL3

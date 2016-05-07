@@ -17,15 +17,4 @@ library
   functor   MLStyle
 
 is
-  $libs/cmlib/cmlib.cm
-
-  (* parcom proper *)
-  src/parse.sig
-  src/parse.sml
-
-  src/charparse.sig
-  src/charparse.sml
-
-  src/tokparse.sig
-  src/tokparse.sml
-  src/langparse.sml
+  parcom.cm (bind:(anchor:libs value:lib))
